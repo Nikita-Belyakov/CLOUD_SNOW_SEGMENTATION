@@ -1,26 +1,42 @@
-# CLOUD_SNOW_SEGMENTATION
-research work for cloud and snow segmentation problem using meteorological satellite ELECTRO L1 multispectral data.
-######################################################################
-1)	Название исследовательского проекта: 
-Сегментация и прогнозирование карты облачности на снимках ДЗЗ со спутника ELECTRO L1
-2)	Цели и задачи: 
-В данном исследовательском проекте предлагается и рассматривается возможное решение задачи детекции зон облачности, попиксельная привязка к географическим координатам изображений,  а также прогнозирование карты облачности по времени со снимков с геостационарного спутника дистанционного зондирования Земли (ДЗЗ) ELECTRO L1, осуществляющего съемку Земли в 10 спектральных каналах. Получение масок облачности и прогноз карты облачности и планируется получить как результат обработки НС.
-3)	Описание данных:
-Аппаратура ELECTRO L1 охватывает три канала в спектре VNIR (0.5-0.65, 0.65-0.8, 0.8-0.9 мкм) со спектральным разрешением 1 км для оценки облачного покрова, четыре микроволновых/ИК канала (3.5-4.0, 5.7-7.0, 7.5-8.5, 8.2-9.2 мкм) при пространственном разрешении 4 км для получения изображений в ночное время и измерений водяного пара, три тепловых ИК канала (9.2-10.2, 10.2-11.2, 11.2-12.5 мкм) с пространственным разрешением 4 км для измерения температуры поверхности моря и водяного пара. Таким образом, объект для анализа – изображения в 10 спектральных диапазонах: первые 3 канала – изображения размера 11 136*11 136  в разрешении 1 км *1 км, следующие 7 каналов – изображения размера 2 784*2 784 в разрешении 4 км * 4км.  Периодичность съемки - 30 минут (подробнее про аппаратуру КА и данные с него см. [1]). Также эти же данные есть в более точном представлении в 16-битном формате с исходных файлов L15, предоставляемых напрямую с ПН КА, но требуют самостоятельной дешифровки и обработки для правильного прочтения. Данные со съемочной аппаратуры доступны для получения с сервера научного центра оперативного мониторинга Земли (НЦ ОМЗ). Там доступны для скачивания снимки с ELECTRO L1 за каждые полчаса, начиная с 2012 года по текущий момент времени. Объем данных для анализа очень велик (десятки ТБ). Разбиение на train/val/test должно проводиться на уровне исходных изображений, а не на уровне патчей, чтобы патчи одного изображения целиком находились только в одной из подвыборок.
-4)	Метрики и оценки качества, валидация результатов:
-Необходимо  осуществлять попиксельную бинарную классификацию облачности по патчам со снимков КА. В качестве оценки достоверности определения маски облачности  для каждого пикселя планируется использовать метрику accuracy. В дальнейшей работе возможно использование других метрик, например, F1-score, поскольку некоторые патчи содержат преимущественно облачность, а некоторые – вообще без облаков, также при переходе от бинарной классификации к маскам для нескольких типов облаков их процентное соотношение также будет сильно несбалансированным. При переходе к задаче прогноза карты облачности вероятно будет использована метрика Mean Absolute Error (MAE). Ранее не было никаких исследований и работ с применением НС к данным с ELECTRO L1, однако в других работах по детекции облачности с других КА ДЗЗ основными метриками качества были accuracy и Jaccard Index, причем значение точности бинарной классификации облачности достигалось accuracy = 0.9648, Jaccard Index = 0.785 (см. [2]). Для датасета CloudCast также была использована метрики Frequency Bias и Brier Score (см. [9]).
-5)	Модели и алгоритмы:
-Предполагаемая архитектура модели – сверточный автоэнкодер, являющийся разновидностью модели U-Net. Для выделения масок облачности и сверки результата с работой модели НС возможно также использовать не нейросетевые алгоритмы обработки снимков ДЗЗ. При дальнейшем переходе к прогнозированию карты облачности будет осуществлен переход к другой архитектуре - рекуррентным сверточным НС (CNN-LSTM–U-Net). 
-6)	Результаты:
-На текущем этапе работы сделана предобработка данных с ELECTRO L1 под формат, схожий с изображениями с LANDSAT-8: изображения Земли 11 136*11 136 пикселей разделены на патчи размера 384*384 пикселей, вычленены 4 спектральных канала в видимом и ближнем инфракрасном диапазонах из 3 каналов с ELECTRO L1 в соответствии с каналами на съемочной аппаратуре LANDSAT-8, создана базовая модель (baseline) U-Net для разметки облачности для каждого патча с объединением в единую маску для всего снимка Земли 11 136 на 11 136 пикселей, тем самым возможно получение собственного размеченного датасета для данных с КА ELECTRO L1, структура которого схожа с датасетом 38-Cloud с KA LANDSAT-8, также найдены и исследованы 4 датасета с других КА ДЗЗ: 38-Cloud [7], 95-Cloud [6] (расширение для датасета 38-Cloud), SPARCS [5] и CloudCast [8], имеющие схожую тематику данных, они также будут использоваться для дальнейшей работы.
-7)	Список литературы и описание датасетов и ресурсов:
-1)	Официальный сайт научного центра оперативного мониторинга Земли (НЦ ОМЗ): https://new.ntsomz.ru/elektro/.
-2)	Sorour Mohajerani, Parvaneh Saeedi. CLOUD-NET: AN END-TO-END CLOUD DETECTION ALGORITHM FOR LANDSAT 8. School of Engineering Science, Simon Fraser University, Burnaby, BC, Canada. https://arxiv.org/pdf/1901.10077.pdf.
-3)	Документация Pytorch: https://pytorch.org/tutorials/
-4)	S. Mohajerani and P. Saeedi, "Shadow Detection in Single RGB Images Using a Context Preserver Convolutional Neural Network Trained by Multiple Adversarial Examples" in IEEE Transactions on Image Processing, vol. 28, no. 8, pp. 4117-4129, Aug. 2019, doi: 10.1109/TIP.2019.2904267.
-5)	Описание датасета SPARCS: https://www.usgs.gov/landsat-missions/spatial-procedures-automated-removal-cloud-and-shadow-sparcs-validation-data
-6)	Описание датасета 95-Cloud: https://github.com/SorourMo/95-Cloud-An-Extension-to-38-Cloud-Dataset
-7)	Описание датасета 38-Cloud: https://github.com/SorourMo/38-Cloud-A-Cloud-Segmentation-Dataset
-8)	Описание датасета CloudCast: https://www.kaggle.com/datasets/christianlillelund/the-cloudcast-dataset-small
-9)	Nielsen, A. H., Iosifidis, A., & Karstoft, H. (2021). CloudCast: A Satellite-Based Dataset and Baseline for Forecasting Clouds. IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, 14, 3485–3494. doi:10.1109/jstars.2021.306293
-10)	Hughes, M., & Hayes, D. (2014). Automated Detection of Cloud and Cloud Shadow in Single-Date Landsat Imagery Using Neural Networks and Spatial Post-Processing. Remote Sensing, 6(6), 4907–4926. doi:10.3390/rs6064907
+# Research work for cloud and snow semantic segmentation problem using meteorological satellite Electro L2 multispectral data #
+
+**ABSTRACT:**
+
+This project is devoted to the method of clouds and snow detection according to the multispectral satellite images, received from a multizone scanning instrument used for hydrometeorological support and installed on the Russian satellite Electro-L No. 2. As the additional information, geographical information: latitude, longitude and altitude is used. The problem of snow and cloud discrimination is the absence of a spectral channel in the range 1400-1800 nm, which is necessary for their accurate separation, is considered. The results of this work include two new datasets from the meteorological satellites GOES-16, 17 and Electro-L No. 2 with the cloud and snow masks, as well as the trained Multi-Scale Attention Network (MANet) segmentation model, able to do accurate segmentation od snow and clouds for these satellites’ multispectral data. The proposed  neural network for clouds and snow segmentation has been tested for different seasons and daytime timestamps with different level of illumination of images. The developed algorithm is fully automatic, and it works in any season of the year during the daytime and is able to perform cloud and snow detection in real time mode for Electro-L No.2 data.
+
+## Setup python version
+The inference.ipynb file has been run with `python 3.9.7` on Windows 10 with NVIDIA CUDA supported 
+
+#### All required libraries (see requirements_inference.txt):
+
+```bash
+albumentations==1.3.0
+h5py==3.8.0
+ipython==8.12.0
+matplotlib==3.7.1
+netCDF4==1.6.4
+numpy==1.23.5
+opencv_python==4.7.0.68
+opencv_python_headless==4.7.0.72
+pandas==1.5.3
+patchify==0.2.3
+Pillow==9.5.0
+pvlib==0.9.4
+pyproj==3.4.1
+PyWavelets==1.4.1
+rasterio==1.2.10
+Requests==2.31.0
+scikit_learn==1.2.1
+scipy==1.9.3
+segmentation_models_pytorch==0.3.2
+Shapely==1.8.4
+tifffile==2021.7.2
+torch==1.13.1+cu116
+torcheval==0.0.6
+torchmetrics==0.11.1
+torchvision==0.14.1+cu116
+tqdm==4.65.0
+```
+#### inference.ipynb usage instructions:
+
+
