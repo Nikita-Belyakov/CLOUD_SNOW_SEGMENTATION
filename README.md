@@ -1,5 +1,4 @@
-** Research work for cloud and snow semantic segmentation problem using meteorological satellite Electro L2 multispectral data **
-######################################################################
+# Research work for cloud and snow semantic segmentation problem using meteorological satellite Electro L2 multispectral data #
 
 **ABSTRACT:**
 
