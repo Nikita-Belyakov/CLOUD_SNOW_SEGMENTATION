@@ -44,7 +44,8 @@ tqdm==4.65.0
 - put all needed unarchieved files from inference_data folder and model_for_Electro_L2 folder and INFERENCE_PUBLIC.ipynb at the same directry
 - Import all required packages and set up random seeds 42 everywhere.
 - define your current directory and device: 
-```shelldevice = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+```
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 your_current_dir = os.getcwd()
 ```
 
