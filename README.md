@@ -48,5 +48,14 @@ tqdm==4.65.0
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 your_current_dir = os.getcwd()
 ```
+- Than you can simply press 'run all' in your jupyter notebook and wait for parsing all inference data and working the MANet model predictiong through 192 pathes to eval cloud and snow masks for half off Electro L2 image
+- Full precess of splitting channels to patches, making prediction and visualize it would take about 5 minutes, keep waiting
+- During splitting, tqdm progress bar will help you to see the current progress stage 
+- ATTENTION! Splitting all inference data will take about 4 GB of memory o your drive
+- def merge_masks has 'save_mode' flag which is False by default, you can switch it to True to save the full prediction cloud and snow masks after merging it from patches 
+- In the last cell their is a visualization of ground truth masks from GOES-16 satellite, MANet model prediction and RGB image from Electro L2 with the metrics (FAR, IoU, F1) evaluation
 
+#### Acknowledgments:
+
+Work is greatly supported by Non-commercial Foundation for the Advancement of Science and Education INTELLECT
 
