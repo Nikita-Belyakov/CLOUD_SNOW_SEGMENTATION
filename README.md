@@ -57,7 +57,7 @@ your_current_dir = os.getcwd()
 
 #### GOES_data folder usage instructions:
 
-- there is PARSIG&PROCESSING_PUBLIC.ipynb with lots of utils for GOES-16,17 data and it can be easily adapted for Electro L2,3,4 satelites as well
+- there is PARSIG&PROCESSING_PUBLIC.ipynb with lots of utils for GOES-16,17 data and it can be easily adapted for Electro L1, L2, L3, L4 or GOES-18 satellites as well
 - this notebook can help you to open and process all neede GOES-R data to make your own dataset with snow and cloud masks
 - this utils include reprojecting function from plate caree projection to geostationaru projetion
 
