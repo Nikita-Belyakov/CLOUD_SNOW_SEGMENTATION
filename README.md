@@ -12,7 +12,7 @@ The inference.ipynb file has been run with `python 3.9.7` on Windows 10 with NVI
 #### All required libraries (follow requirements_inference.txt):
 
 ```bash
-albumentations==1.3.0
+patoolib
 h5py==3.8.0
 ipython==8.12.0
 matplotlib==3.7.1
@@ -21,7 +21,6 @@ numpy==1.23.5
 opencv_python==4.7.0.68
 opencv_python_headless==4.7.0.72
 pandas==1.5.3
-patchify==0.2.3
 Pillow==9.5.0
 pvlib==0.9.4
 pyproj==3.4.1
@@ -41,7 +40,7 @@ tqdm==4.65.0
 ```
 #### INFERENCE_PUBLIC.ipynb usage instructions:
 
-- put all needed unarchieved files from inference_data folder and model_for_Electro_L2 folder and INFERENCE_PUBLIC.ipynb at the same directry
+- clone this repo on your PC and run INFERENCE_PUBLIC.ipynb
 - Import all required packages and set up random seeds 42 everywhere.
 - define your current directory and device: 
 ```
@@ -51,8 +50,9 @@ your_current_dir = os.getcwd()
 - Than you can simply press 'run all' in your jupyter notebook and wait for parsing all inference data and working the MANet model predictiong through 192 pathes to eval cloud and snow masks for half off Electro L2 image
 - Full precess of splitting channels to patches, making prediction and visualize it would take about 5 minutes, keep waiting
 - During splitting, tqdm progress bar will help you to see the current progress stage 
-- ATTENTION! Splitting all inference data will take about 4 GB of memory o your drive
-- def merge_masks has 'save_mode' flag which is False by default, you can switch it to True to save the full prediction cloud and snow masks after merging it from patches 
+- ATTENTION! Splitting all inference data will take about 2 GB of memory o your drive
+- def merge_masks has 'save_mode' flag which is False by default, you can switch it to True to save the full prediction cloud and snow masks after merging it from patches
+- during loading model there is a flag 'GOES_mode' which is False by default, you can switch it to True to use weights of MANet model, trained on GOES data
 - In the last cell their is a visualization of ground truth masks from GOES-16 satellite, MANet model prediction and RGB image from Electro L2 with the metrics (FAR, IoU, F1) evaluation
 
 #### Acknowledgments:
