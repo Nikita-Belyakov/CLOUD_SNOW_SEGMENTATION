@@ -12,7 +12,7 @@ The inference.ipynb file has been run with `python 3.9.7` on Windows 10 with NVI
 #### All required libraries (follow requirements_inference.txt):
 
 ```bash
-patoolib
+patool
 h5py==3.8.0
 ipython==8.12.0
 matplotlib==3.7.1
@@ -54,6 +54,12 @@ your_current_dir = os.getcwd()
 - def merge_masks has 'save_mode' flag which is False by default, you can switch it to True to save the full prediction cloud and snow masks after merging it from patches
 - during loading model there is a flag 'GOES_mode' which is False by default, you can switch it to True to use weights of MANet model, trained on GOES data
 - In the last cell their is a visualization of ground truth masks from GOES-16 satellite, MANet model prediction and RGB image from Electro L2 with the metrics (FAR, IoU, F1) evaluation
+
+#### GOES_data folder usage instructions:
+
+- there is PARSIG&PROCESSING_PUBLIC.ipynb with lots of utils for GOES-16,17 data and it can be easily adapted for Electro L2,3,4 satelites as well
+- this notebook can help you to open and process all neede GOES-R data to make your own dataset with snow and cloud masks
+- this utils include reprojecting function from plate caree projection to geostationaru projetion
 
 #### Acknowledgments:
 
