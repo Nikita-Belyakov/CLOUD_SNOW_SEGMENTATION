@@ -9,34 +9,11 @@ This project is devoted to the method of clouds and snow semantic segmentation a
 ## Setup python version
 The inference_public.ipynb file has been run with `python 3.9.7` on Windows 10 with NVIDIA CUDA supported 
 
-#### All required libraries (follow requirements_inference.txt):
+### All required libraries are written in requirements.txt
+- just run in .ipynb this cell
+``` !pip install -r requirements.txt
 
-```bash
-patool
-h5py==3.8.0
-ipython==8.12.0
-matplotlib==3.7.1
-netCDF4==1.6.4
-numpy==1.23.5
-opencv_python==4.7.0.68
-opencv_python_headless==4.7.0.72
-pandas==1.5.3
-Pillow==9.5.0
-pvlib==0.9.4
-pyproj==3.4.1
-rasterio==1.2.10
-scikit_learn==1.2.1
-scipy==1.9.3
-segmentation_models_pytorch==0.3.2
-Shapely==1.8.4
-tifffile==2021.7.2
-torch==1.13.1+cu116
-torcheval==0.0.6
-torchmetrics==0.11.1
-torchvision==0.14.1+cu116
-tqdm==4.65.0
-```
-#### INFERENCE_PUBLIC.ipynb usage instructions:
+### INFERENCE_PUBLIC.ipynb usage instructions:
 
 - clone this repo on your PC and run INFERENCE_PUBLIC.ipynb
 - Import all required packages and set up random seeds 42 everywhere.
