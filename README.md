@@ -10,9 +10,11 @@ This project is devoted to the method of clouds and snow semantic segmentation a
 The inference_public.ipynb file has been run with `python 3.9.7` on Windows 10 with NVIDIA CUDA supported 
 
 ### All required libraries are written in requirements.txt
+- there are seperated requrements for each .ipynb in this repo! Be careful!
 - just run in .ipynb this cell
-``` !pip install -r requirements.txt
-
+```
+ !pip install -r requirements.txt
+```
 ### INFERENCE_PUBLIC.ipynb usage instructions:
 
 - clone this repo on your PC and run INFERENCE_PUBLIC.ipynb
