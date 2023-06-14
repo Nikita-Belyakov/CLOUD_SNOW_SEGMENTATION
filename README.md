@@ -10,21 +10,21 @@ This project is devoted to the method of clouds and snow semantic segmentation a
 The inference_public.ipynb file has been run with `python 3.9.7` on Windows 10 with NVIDIA CUDA supported 
 
 ### All required libraries are written in requirements.txt
-- there are seperated requrements for each .ipynb in this repo! Be careful!
-- just run in .ipynb this cell
+- There are seperated requrements.txt for each .ipynb in this repo! Be careful!
+- Just run in .ipynb this cell
 ```
  !pip install -r requirements.txt
 ```
 ### INFERENCE_PUBLIC.ipynb usage instructions:
 
-- clone this repo on your PC and run INFERENCE_PUBLIC.ipynb
+- Clone this repo on your PC and run INFERENCE_PUBLIC.ipynb
 - Import all required packages and set up random seeds 42 everywhere.
-- define your current directory and device: 
+- Define your current directory and device: 
 ```
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 your_current_dir = os.getcwd()
 ```
-- Than you can simply press 'run all' in your jupyter notebook and wait for parsing all inference data and working the MANet model predictiong through 1152 pathes to eval cloud and snow masks for half off Electro L2 image
+- After that you can simply press 'run all' in your jupyter notebook and wait for parsing all inference data and working the MANet model predictiong through 1152 pathes to eval cloud and snow masks for half off Electro L2 image
 - Full precess of splitting channels to patches, making prediction and visualize it would take about 5 minutes, keep waiting
 - During splitting, tqdm progress bar will help you to see the current progress stage 
 - ATTENTION! Splitting all inference data will take about 2 GB of memory o your drive
@@ -34,9 +34,9 @@ your_current_dir = os.getcwd()
 
 ### GOES_data folder usage instructions:
 
-- there is PARSIG&PROCESSING_PUBLIC.ipynb with lots of utils for GOES-16,17 data and it can be easily adapted for Electro L1, L2, L3, L4 or GOES-18 satellites as well
-- this notebook can help you to open and process all neede GOES-R data to make your own dataset with snow and cloud masks
-- this utils include reprojecting function from plate caree projection to geostationary projetion
+- There is PARSIG&PROCESSING_PUBLIC.ipynb with lots of utils for GOES-16,17 data and it can be easily adapted for Electro L1, L2, L3, L4 or GOES-18 satellites as well
+- This notebook can help you to open and process all neede GOES-R data to make your own dataset with snow and cloud masks
+- This utils include reprojecting function from plate caree projection to geostationary projetion
 
 ## Acknowledgments:
 
