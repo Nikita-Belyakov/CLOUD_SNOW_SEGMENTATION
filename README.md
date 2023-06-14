@@ -24,12 +24,13 @@ The inference_public.ipynb file has been run with `python 3.9.7` on Windows 10 w
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 your_current_dir = os.getcwd()
 ```
-- After that you can simply press 'run all' in your jupyter notebook and wait for parsing all inference data and working the MANet model predictiong through 1152 pathes to eval cloud and snow masks for half off Electro L2 image
-- Full precess of splitting channels to patches, making prediction and visualize it would take about 5 minutes, keep waiting
+- After that you can simply press 'run all' in your jupyter notebook and wait for parsing all inference data and working the MANet model predictiong through 1152 pathes to eval cloud and snow masks for half of Electro L2 image
+- Its recomended to use local PC for running def merge_masks as Google Collab slowly works with opening lots of files from your Google Drive content directories in a loop
+- The complete process of splitting channels to patches, making prediction and visualization can take **more than 5 minutes, keep waiting, please**
 - During splitting, tqdm progress bar will help you to see the current progress stage 
-- ATTENTION! Splitting all inference data will take about 2 GB of memory o your drive
-- def merge_masks has 'save_mode' flag which is False by default, you can switch it to True to save the full prediction cloud and snow masks after merging it from patches
-- during loading model there is a flag 'GOES_mode' which is False by default, you can switch it to True to use weights of MANet model, trained on GOES data
+- **ATTENTION!** Splitting all inference data requires about **2 GB** of free memory on your drive
+- `def merge_masks` has 'save_mode' flag which is False by default, you can switch it to `True` to save the full prediction cloud and snow masks after merging it from patches
+- During loading model there is a flag 'GOES_mode' which is False by default, you can switch it to True to use weights of MANet model, trained on GOES data
 - In the last cell their is a visualization of ground truth masks from GOES-16 satellite, MANet model prediction and RGB image from Electro L2 with the metrics (FAR, IoU, F1) evaluation
 
 ### GOES_data folder usage instructions:
