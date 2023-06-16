@@ -70,7 +70,8 @@ your_current_dir = os.getcwd()
 
 To ask more questions about that project, leave any recomendations, suggestions and feedback about that project and its code or get other multispectral data from Electro L2 Dataset be free to contact Nikita Belyakov:
 - Mail: MSUBelyakovNV@yandex.ru
-- Telegram: @workout2018
+- Telegram: https://t.me/workout2018
+- VK: https://vk.com/merenobody
 - Contact phone: +79166893836
 
 ## Acknowledgments:
