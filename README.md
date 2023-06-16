@@ -42,11 +42,12 @@ your_current_dir = os.getcwd()
 - PARSING_&_PROCESSING_SATELLITE_DATA_PUBLIC.ipynb includes cells for reprojecting Aster GDEM and Snow map 2D images from plate caree projection to geostationary projetion according needed satellite selected
 - All needed multispectral data from GOES-R can be downloaded for free from here:
    - https://home.chpc.utah.edu/~u0553130/Brian_Blaylock/cgi-bin/goes16_download.cgi?source=aws&satellite=noaa-goes16&domain=F&product=ABI-L2-MCMIP&date=2021-12-15&hour=12
+   - https://noaa-goes16.s3.amazonaws.com/index.html#ABI-L2-ACMF/2022/046/12/
 - It's recommended to download and process Cloud & Moisture L2 product in multiband format with 2 km resolution as it's easier and faster to parse
 - All needed snow data from MODIS can be downloaded for free from 2 sources (there also all required cells for evaluate binary snow mask from both these formats provided in PARSING_&_PROCESSING_SATELLITE_DATA_PUBLIC.ipynb):
   - https://n5eil01u.ecs.nsidc.org/MOST/MOD10C1.061/2023.05.15/
   - https://neo.gsfc.nasa.gov/view.php?datasetId=MOD10C1_E_SNOW&date=2023-02-15
-
+- after processing all required data for creating your own dataset for cloud and (or) snow segmentation you can go to **training_model_utils folder**, run MANet_training_on_Electro_L2_Dataset.ipynb to split all gathered data to patches for neural network training, define your dataset directories and start training and validating your segmentation model process (See instructions for raining_model_utils folder and MANet_training_on_Electro_L2_Dataset.ipynb usage) 
 ## Acknowledgments:
 
 **Work is greatly supported by Non-commercial Foundation for the Advancement of Science and Education INTELLECT**
