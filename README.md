@@ -51,9 +51,27 @@ your_current_dir = os.getcwd()
 
 ### Training_model_utils folder usage instructions:
 
-- This directory contains MANet_training_on_Electro_L2_Dataset.ipynb and requirements.txt for it with the full pipeline for successfull preparation, processing multispectral dataset from Electro L2 or GOES-R and training segmentation model on it via some trics with scheduler, optimezer and WeightedRandomSampler
+- This directory contains MANet_training_on_Electro_L2_Dataset.ipynb and requirements.txt for it with the full pipeline for successfull preparation, processing multispectral data from Electro L2 or GOES-R and training segmentation model on it via some trics with scheduler, optimezer and WeightedRandomSampler
 - In this notebook as an example we use only 2 images from Electro L2, which is situated in data_inference folder in that project
-- This notebook works in 'run all' mode on this data, provided for inference and the previously described PARSING_&_PROCESSING_SATELLITE_DATA_PUBLIC.ipynb can help You to make your own big dataset of geostationary multispectral data with geoinfo and clouds, snow masks for your scientific needs
+- This notebook can be used in 'run all' mode on data in data_inference folder in that project
+- PARSING_&_PROCESSING_SATELLITE_DATA_PUBLIC.ipynb can help You to make your own big dataset of geostationary multispectral data with geoinfo and clouds, snow masks for your scientific needs
+- There are lots of parameters and paths and names of models to save! Be careful with it! You can  adjust such parameters ot training as:
+  - learning rate
+  - weight decay
+  - max_epoch_num (number of epoches to train your model)
+  - best_valid_iou_>0 --- a threshold ioU value on validation subset to save your first model during first training epoches
+  - scheduler can be changed from `None` by default to alternative that You think is more suitable
+  - Ranger21 optimizer can be chanded to classical Adam/AdamW or sth else (SGD etc.)
+- Optional part in the end includes function for souping several models weights, saved on different epoches during training loop
+- You can soup more or less than 3 models if You wish
+
+## Contacts:
+
+To ask more questions about that project, leave any recomendations, suggestions and feedback about that project and its code or get other multispectral data from Electro L2 Dataset be free to contact Nikita Belyakov:
+- Mail: MSUBelyakovNV@yandex.ru
+- Telegram: @workout2018
+- Contact phone: +79166893836
+
 ## Acknowledgments:
 
 **Work is greatly supported by Non-commercial Foundation for the Advancement of Science and Education INTELLECT**
