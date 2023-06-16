@@ -56,12 +56,12 @@ your_current_dir = os.getcwd()
 - This notebook can be used in 'run all' mode on data in data_inference folder in that project
 - PARSING_&_PROCESSING_SATELLITE_DATA_PUBLIC.ipynb can help You to make your own big dataset of geostationary multispectral data with geoinfo and clouds, snow masks for your scientific needs
 - There are lots of parameters and paths and names of models to save! Be careful with it! You can  adjust such parameters ot training as:
-  - learning rate
-  - weight decay
-  - max_epoch_num (number of epoches to train your model)
-  - best_valid_iou_>0 --- a threshold ioU value on validation subset to save your first model during first training epoches
-  - scheduler can be changed from `None` by default to alternative that You think is more suitable
-  - Ranger21 optimizer can be chanded to classical Adam/AdamW or sth else (SGD etc.)
+  - `learning rate`
+  - `weight decay`
+  - `max_epoch_num` (number of epoches to train your model)
+  - `best_valid_iou_` is a threshold ioU value on validation subset to save your first model during first training epoches
+  - `scheduler` can be changed from `None` by default to alternative that You think is more suitable
+  - `Ranger21_optimizer` can be chanded to classical `Adam/AdamW` or sth else (`SGD` etc.)
 - Optional part in the end includes function for souping several models weights, saved on different epoches during training loop
 - You can soup more or less than 3 models if You wish
 
