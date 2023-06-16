@@ -51,8 +51,9 @@ your_current_dir = os.getcwd()
 
 ### Training_model_utils folder usage instructions:
 
-- This directory contains MANet_training_on_Electro_L2_Dataset.ipynb with the full pipeline for successfull preparation, processing multispectral dataset from Electro L2 or GOES-R and training segmentation model on it via some trics with scheduler, optimezer and WeightedRandomSampler
+- This directory contains MANet_training_on_Electro_L2_Dataset.ipynb and requirements.txt for it with the full pipeline for successfull preparation, processing multispectral dataset from Electro L2 or GOES-R and training segmentation model on it via some trics with scheduler, optimezer and WeightedRandomSampler
 - In this notebook as an example we use only 2 images from Electro L2, which is situated in data_inference folder in that project
+- This notebook works in 'run all' mode on this data, provided for inference and the previously described PARSING_&_PROCESSING_SATELLITE_DATA_PUBLIC.ipynb can help You to make your own big dataset of geostationary multispectral data with geoinfo and clouds, snow masks for your scientific needs
 ## Acknowledgments:
 
 **Work is greatly supported by Non-commercial Foundation for the Advancement of Science and Education INTELLECT**
