@@ -61,9 +61,10 @@ your_current_dir = os.getcwd()
   - `max_epoch_num` (number of epoches to train your model)
   - `best_valid_iou_` is a threshold ioU value on validation subset to save your first model during first training epoches
   - `scheduler` can be changed from `None` by default to alternative that You think is more suitable
-  - `Ranger21_optimizer` can be chanded to classical `Adam/AdamW` or sth else (`SGD` etc.)
+  - `Ranger21_optimizer` can be changed to classical `Adam/AdamW` or sth else (`SGD` etc.)
+  - You Loss function can be modified with gamma in FocalLoss and with beta in a linear combination of Dice and Focal Losses
 - Optional part in the end includes function for souping several models weights, saved on different epoches during training loop
-- You can soup more or less than 3 models if You wish
+- You can soup more or less than 3 models if You wish (it's recomended to soup less than 10 models and use `CosineAnealingLR` scheduler to save models during training loop in different local minimuma of Your Loss function)
 
 ## Contacts:
 
