@@ -40,7 +40,8 @@ your_current_dir = os.getcwd()
 - There is PARSING_&_PROCESSING_SATELLITE_DATA_PUBLIC.ipynb with lots of utils and very useful functions for GOES-16,17 data and it can be easily adapted for Electro L1, L2, L3, L4, GOES-18 or SEVIRI Meteosat-9 satellites as well
 - This notebook can help you to open and process all needed GOES-R multispectral data and Level2 (L2) products to make your own dataset with snow and cloud masks
 - PARSING_&_PROCESSING_SATELLITE_DATA_PUBLIC.ipynb includes cells for reprojecting Aster GDEM and Snow map 2D images from plate caree projection to geostationary projetion according needed satellite selected
-- All needed multispectral data from GOES-R can be downloaded for free from here: https://home.chpc.utah.edu/~u0553130/Brian_Blaylock/cgi-bin/goes16_download.cgi?source=aws&satellite=noaa-goes16&domain=F&product=ABI-L2-MCMIP&date=2021-12-15&hour=12
+- All needed multispectral data from GOES-R can be downloaded for free from here:
+   - https://home.chpc.utah.edu/~u0553130/Brian_Blaylock/cgi-bin/goes16_download.cgi?source=aws&satellite=noaa-goes16&domain=F&product=ABI-L2-MCMIP&date=2021-12-15&hour=12
 - It's recommended to download and process Cloud & Moisture L2 product in multiband format with 2 km resolution as it's easier and faster to parse
 - All needed snow data from MODIS can be downloaded for free from 2 sources (there also all required cells for evaluate binary snow mask from both these formats provided in PARSING_&_PROCESSING_SATELLITE_DATA_PUBLIC.ipynb):
   - https://n5eil01u.ecs.nsidc.org/MOST/MOD10C1.061/2023.05.15/
