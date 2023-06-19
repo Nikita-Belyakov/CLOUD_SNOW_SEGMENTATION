@@ -20,15 +20,14 @@ The **INFERENCE_PUBLIC.ipynb** and other notebooks files have been run with `pyt
 ### INFERENCE_PUBLIC.ipynb usage instructions:
 
 - Clone this repo on your PC and run **INFERENCE_PUBLIC.ipynb**
-- Import all required packages and set up random seeds 42 everywhere for stability.
-- Define your current directory and device: 
+- At first cells we Import all required packages and set up random seeds 42 everywhere for stability and define your current directory and device: 
 ```
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 your_current_dir = os.getcwd()
 ```
 - Its recomended to use `CUDA` `device` instead of `CPU` to make the model working process faster
 - After that you can simply press 'run all' in your jupyter notebook and wait for parsing all inference data and working the MANet model predicting through 1152 patches to evaluate cloud and snow masks for half of Electro L2 image
-- Its recomended to use local PC for running `def merge_masks` as Google Collab slowly works with opening lots of files from your Google Drive content directories in a loop over 1152 patches
+- Its recomended to use local PC for running `def merge_masks` as Google Colab slowly works with opening lots of files from your Google Drive content directories in a loop over 1152 patches
 - The complete process of splitting channels to patches, making prediction and visualization can take **more than 5 minutes, keep waiting**
 - During splitting, `tqdm` progress bar will help you to follow the current progress stage 
 - **ATTENTION!** Splitting all inference data requires about **4 GB** of free memory on your hard drive!
