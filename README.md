@@ -13,7 +13,7 @@ This project is devoted to the cloud and snow semantic segmentation using multis
 The **INFERENCE_PUBLIC.ipynb** and other notebooks files have been run with `python 3.9.7` on Windows 10 OS with NVIDIA CUDA supported (Adapt all needed packages versions accroding your python version)
 
 ### All required packages are written in requirements.txt
-- It's recomended to use `Pytorch` version with CUDA support! To install pytorch with cuda use command from here in yout console:
+- It's recomended to use `Pytorch` version with CUDA support! To install pytorch with cuda run appropriate command in your console from here:
   - https://pytorch.org/get-started/locally/
   - (We used this version of cudann: `pip install torch==1.13.1+cu116 torchvision==0.14.1+cu116 torchaudio==0.13.1 --extra-index-url https://download.pytorch.org/whl/cu116`)
 - There are seperated **requrements.txt** for each **.ipynb** in every folder in this repo! Be careful!
