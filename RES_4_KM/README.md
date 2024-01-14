@@ -36,26 +36,10 @@ your_current_dir = os.getcwd()
 - Its recomended to use `CUDA` `device` instead of `CPU` to make the model working process faster
 - After that you can simply press 'run all' in your jupyter notebook and wait for parsing all inference data and working the MANet model predicting through 1152 patches to evaluate cloud and snow masks for half of Electro L2 image
 - Its recomended to use local PC for running `def merge_masks` as Google Colab slowly works with opening lots of files from your Google Drive content directories in a loop over 1152 patches
-- The complete process of splitting channels to patches, making prediction and visualization can take **more than 5 minutes, keep waiting**
 - During splitting, `tqdm` progress bar will help you to follow the current progress stage 
-- **ATTENTION!** Splitting all inference data requires about **4 GB** of free memory on your hard drive!
+- **ATTENTION!** Splitting all inference data requires about **1 GB** of free memory on your hard drive!
 - `def merge_masks` has 'save_mode' flag which is `False` by default, you can switch it to `True` to save the full prediction cloud and snow masks after merging it from patches
-- During loading model there is a flag `GOES_mode` which is `False` by default, you can switch it to `True` to use weights of MANet model, trained on GOES data
-- In the last cell there is a visualization of ground truth masks from GOES-16 satellite, MANet model prediction and RGB image from Electro L2 with the metrics (FAR, IoU, F1) evaluation (can be modified for other metrics for Your needs)
-
-### GOES_data folder usage instructions:
-
-- There is **PARSING_&_PROCESSING_SATELLITE_DATA_PUBLIC.ipynb** with lots of utils and very useful functions for GOES-16,17 data and it can be easily adapted for Electro L1, L2, L3, L4, GOES-18 or SEVIRI Meteosat-9 satellites as well
-- This notebook can help you to open and process all needed GOES-R multispectral data and Level2 (L2) products to make your own dataset with snow and cloud masks
-- **PARSING_&_PROCESSING_SATELLITE_DATA_PUBLIC.ipynb** includes cells for reprojecting Aster GDEM and Snow map 2D images from plate caree projection to geostationary projetion according needed satellite selected
-- All needed multispectral data from GOES-R can be downloaded for free from here:
-   - https://home.chpc.utah.edu/~u0553130/Brian_Blaylock/cgi-bin/goes16_download.cgi?source=aws&satellite=noaa-goes16&domain=F&product=ABI-L2-MCMIP&date=2021-12-15&hour=12
-   - https://noaa-goes16.s3.amazonaws.com/index.html#ABI-L2-ACMF/2022/046/12/
-- It's recommended to download and process Cloud & Moisture L2 product in multiband format with 2 km resolution as it's easier and faster to parse
-- All needed snow data from Terra/MODIS can be downloaded for free from 2 sources (there also all required cells for evaluate binary snow mask from both these formats provided in **PARSING_&_PROCESSING_SATELLITE_DATA_PUBLIC.ipynb**):
-  - https://n5eil01u.ecs.nsidc.org/MOST/MOD10C1.061/2023.05.15/
-  - https://neo.gsfc.nasa.gov/view.php?datasetId=MOD10C1_E_SNOW&date=2023-02-15
-- After processing all required data for creating your own dataset for cloud and (or) snow segmentation you can go to **training_model_utils folder** and run **MANet_training_on_Electro_L2_Dataset.ipynb** to split all gathered data to patches for neural network training, define your dataset directories and start training and validating your segmentation model process (See instructions for **training_model_utils folder** & **MANet_training_on_Electro_L2_Dataset.ipynb** usage below)
+- In the last cell there is a visualization of ground truth masks, MANet model prediction and RGB image from Electro L2 with the metrics (FAR, IoU, F1) evaluation (can be modified for other metrics for Your needs)
 
 ### Training_model_utils folder usage instructions:
 
@@ -76,7 +60,7 @@ your_current_dir = os.getcwd()
 
 ## Contacts:
 
-To ask more questions about that project, leave any recomendations, suggestions and feedback about that project and its code or get other multispectral data from Electro L2 Dataset be free to contact Nikita Belyakov:
+To ask more questions about that project, leave any recomendations, suggestions and feedback about that project and its code or get other multispectral data from Electro-L № 2 Dataset be free to contact Nikita Belyakov:
 - Mail: MSUBelyakovNV@yandex.ru
 - Telegram: https://t.me/workout2018
 - VK: https://vk.com/merenobody
