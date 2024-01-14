@@ -34,19 +34,19 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 your_current_dir = os.getcwd()
 ```
 - Its recomended to use `CUDA` `device` instead of `CPU` to make the model working process faster
-- After that you can simply press 'run all' in your jupyter notebook and wait for parsing all inference data and working the MANet model predicting through 1152 patches to evaluate cloud and snow masks for half of Electro L2 image
-- Its recomended to use local PC for running `def merge_masks` as Google Colab slowly works with opening lots of files from your Google Drive content directories in a loop over 1152 patches
+- After that you can simply press 'run all' in your jupyter notebook and wait for parsing all inference data and working the MANet model predicting through 144 patches to evaluate cloud and snow masks for half of Electro-L № 2 image
+- Its recomended to use local PC for running `def merge_masks` as Google Colab slowly works with opening lots of files from your Google Drive content directories in a loop over 144 patches
 - During splitting, `tqdm` progress bar will help you to follow the current progress stage 
 - **ATTENTION!** Splitting all inference data requires about **1 GB** of free memory on your hard drive!
 - In the last cell there is a visualization of ground truth masks, MANet model prediction and RGB image from Electro L2 with the metrics (FAR, IoU, F1) evaluation (can be modified for other metrics for Your needs)
 
 ### Training_model_utils folder usage instructions:
 
-- This directory contains **MANet_training_on_Electro_L2_Dataset.ipynb** and **requirements.txt** for it with the full pipeline for successfull preprocessing multispectral data from Electro-L № 2 and training segmentation model on it via some tricks with `scheduler`, `optimizer` and `WeightedRandomSampler`
+- This directory contains **MANet_training.ipynb** and **requirements.txt** for it with the full pipeline for successfull preprocessing multispectral data from Electro-L № 2 and training segmentation model on it via some tricks with `scheduler`, `optimizer` and `WeightedRandomSampler`
 - In this notebook as an example we use only 1 image from Electro-L № 2, which is situated in **data_inference folder** in that project (You won't be able to train segmentation model from scratch for good quality segmentation only on this 1 image! You can use pretrained models from this repo instead)
 - This notebook can be used in 'run all' mode on data in **data_inference folder** from that repo and than adapted for your own generated dataset
 - **PARSING_&_PROCESSING_SATELLITE_DATA_PUBLIC.ipynb** from **RES_1_KM folder** can help You to make your own big dataset of geostationary multispectral data with geoinfo and clouds, snow masks for your scientific research
-- There are lots of parameters, paths and names, that are hardcoded! Be careful with it! You can adjust all these paths and parameters according Your needs. Training  parameters to tune are:
+- **There are lots of parameters, paths and names, that are hardcoded! Be careful with it!** You can adjust all these paths and parameters according Your needs. Training  parameters to tune are:
   - `learning rate`
   - `weight decay`
   - `max_epoch_num` (number of epochs to train your model)
@@ -55,7 +55,7 @@ your_current_dir = os.getcwd()
   - `Ranger21_optimizer` can be changed to classical `Adam/AdamW` or sth else (`SGD` etc.)
   - Your Loss function can be modified with gamma in FocalLoss (from SMP) and with beta in a linear combination of Dice and Focal Losses (from SMP)
 - Optional part in the end of that .ipynb file includes function for souping several models weights, saved on different epochs during training process
-- You can soup more or less than 3 models if You wish (it's recomended to soup less than 10 models and use `CosineAnealingLR` scheduler to save models during training loop in different local minima of Your Loss function)
+- You can soup more or less than 3 models if You wish (it's recomended to soup less than 10 models and use `torch.optim.lr_scheduler.CosineAnealingLR` or `torch.optim.lr_scheduler.CosineAnnealingWarmRestarts` scheduler to save models during training loop in different local minima of Your Loss function)
 
 ## Contacts:
 
