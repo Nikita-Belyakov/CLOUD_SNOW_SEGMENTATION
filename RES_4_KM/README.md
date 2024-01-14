@@ -1,5 +1,5 @@
-# Cloud and snow semantic segmentation problem using meteorological satellite Electro L2 data #
-<img src="./title_pic.png" width="800"/>
+# Cloud and snow semantic segmentation using meteorological satellite Electro-L № 2 data #
+<img src="./l2_MANet_predict.png" width="800"/>
 
 ## **Annotation:**
 
