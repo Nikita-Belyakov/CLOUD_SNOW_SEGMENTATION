@@ -38,15 +38,14 @@ your_current_dir = os.getcwd()
 - Its recomended to use local PC for running `def merge_masks` as Google Colab slowly works with opening lots of files from your Google Drive content directories in a loop over 1152 patches
 - During splitting, `tqdm` progress bar will help you to follow the current progress stage 
 - **ATTENTION!** Splitting all inference data requires about **1 GB** of free memory on your hard drive!
-- `def merge_masks` has 'save_mode' flag which is `False` by default, you can switch it to `True` to save the full prediction cloud and snow masks after merging it from patches
 - In the last cell there is a visualization of ground truth masks, MANet model prediction and RGB image from Electro L2 with the metrics (FAR, IoU, F1) evaluation (can be modified for other metrics for Your needs)
 
 ### Training_model_utils folder usage instructions:
 
-- This directory contains **MANet_training_on_Electro_L2_Dataset.ipynb** and **requirements.txt** for it with the full pipeline for successfull preprocessing multispectral data from Electro L2 or GOES-R and training segmentation model on it via some tricks with `scheduler`, `optimizer` and `WeightedRandomSampler`
-- In this notebook as an example we use only 2 images from Electro L2, which is situated in **data_inference folder** in that project (You won't be able to train segmentation model from scratch for good quality segmentation only on these 2 images! You can use pretrained models from this repo instead)
+- This directory contains **MANet_training_on_Electro_L2_Dataset.ipynb** and **requirements.txt** for it with the full pipeline for successfull preprocessing multispectral data from Electro-L № 2 and training segmentation model on it via some tricks with `scheduler`, `optimizer` and `WeightedRandomSampler`
+- In this notebook as an example we use only 1 image from Electro-L № 2, which is situated in **data_inference folder** in that project (You won't be able to train segmentation model from scratch for good quality segmentation only on this 1 image! You can use pretrained models from this repo instead)
 - This notebook can be used in 'run all' mode on data in **data_inference folder** from that repo and than adapted for your own generated dataset
-- **PARSING_&_PROCESSING_SATELLITE_DATA_PUBLIC.ipynb** can help You to make your own big dataset of geostationary multispectral data with geoinfo and clouds, snow masks for your scientific research
+- **PARSING_&_PROCESSING_SATELLITE_DATA_PUBLIC.ipynb** from **RES_1_KM folder** can help You to make your own big dataset of geostationary multispectral data with geoinfo and clouds, snow masks for your scientific research
 - There are lots of parameters, paths and names, that are hardcoded! Be careful with it! You can adjust all these paths and parameters according Your needs. Training  parameters to tune are:
   - `learning rate`
   - `weight decay`
