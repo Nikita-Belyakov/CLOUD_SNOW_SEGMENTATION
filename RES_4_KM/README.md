@@ -3,7 +3,7 @@
 
 ## **About:**
 
-This project is devoted to the cloud and snow semantic segmentation using multispectral satellite images, received from a multizone scanning instrument (MSU-GS) used for hydrometeorological support and installed on the Russian satellite Electro-L No. 2. As the additional information, geographical information (latitude, longitude and altitude) is used. The main difficulty of snow and cloud discrimination using Electro-L No. 2 data is the absence of spectral channels in the range 1300-1600 nm, which are necessary for accurate separation snow from cloud textures (NDSI tests). The results of this work include a self-collected dataset with Electro-L No. 2 imagery, cloud masks for it from the geostationary satellites GOES-16, Meteosat-10 and snow masks from Terra/MODIS. We also at a trained Multi-Scale Attention Network (MANet) segmentation model weights (from SMP: https://smp.readthedocs.io/en/latest/models.html), able to do accurate segmentation of cloud ansd snow for MSU-GS multispectral data. The proposed  neural network for clouds and snow segmentation has been tested for different seasons and daytime periods with different level of illumination of images. The developed algorithm works in any season of the year during the daytime and is able to perform cloud and snow segmentation in real time mode for Electro-L No.2 and GOES-R data.
+This project is devoted to the cloud and snow semantic segmentation using multispectral satellite images, received from a multizone scanning instrument (MSU-GS) used for hydrometeorological support and installed on the Russian satellite Electro-L No. 2. As the additional information, geographical information (latitude, longitude and altitude) is used. The main difficulty of snow and cloud discrimination using Electro-L No. 2 data is the absence of spectral channels in the range 1300-1600 nm, which are necessary for accurate separation snow from cloud textures (NDSI tests). The results of this work include a self-collected dataset with Electro-L No. 2 imagery, cloud masks for it from the geostationary satellites GOES-16, Meteosat-10 and snow masks from Terra/MODIS. We also attach a trained Multi-Scale Attention Network (MANet) segmentation model weights (from SMP: https://smp.readthedocs.io/en/latest/models.html), able to do accurate segmentation of cloud ansd snow for MSU-GS multispectral data. The proposed  neural network for clouds and snow segmentation has been tested for different seasons and daytime periods with different level of illumination of images. The developed algorithm works in any season of the year during the daytime and is able to perform cloud and snow segmentation in real time mode for Electro-L No.2 and GOES-R data.
 
 - Weights of model for Electro-L No.2 data can be loaded from **models** and used for data_inference in **INFERENCE.ipynb** as an example
 - GOES-16 L2 products used for cloud masks were obtained from Amazon: 
@@ -50,7 +50,7 @@ your_current_dir = os.getcwd()
   - `learning rate`
   - `weight decay`
   - `max_epoch_num` (number of epochs to train your model)
-  - `best_valid_iou_` is a threshold IoU value on validation subset to save your first model during first training epochs
+  - `best_train_iou_` is a threshold IoU value on validation subset to save your first model during first training epochs
   - `scheduler` can be changed from `None` by default to alternative that You think is more effective
   - `Ranger21_optimizer` can be changed to classical `Adam/AdamW` or sth else (`SGD` etc.)
   - Your Loss function can be modified with gamma in FocalLoss (from SMP) and with beta in a linear combination of Dice and Focal Losses (from SMP)
@@ -68,4 +68,6 @@ To ask more questions about that project, leave any recomendations, suggestions 
 ## Acknowledgments:
 
 **Work is greatly supported by Non-commercial Foundation for the Advancement of Science and Education INTELLECT**
+
+Also thanks a lot to https://github.com/skolpin for a huge assist for creating this project!
 
