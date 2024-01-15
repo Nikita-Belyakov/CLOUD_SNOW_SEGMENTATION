@@ -50,7 +50,7 @@ your_current_dir = os.getcwd()
   - `learning rate`
   - `weight decay`
   - `max_epoch_num` (number of epochs to train your model)
-  - `best_valid_iou_` is a threshold IoU value on validation subset to save your first model during first training epochs
+  - `best_train_iou_` is a threshold IoU value on validation subset to save your first model during first training epochs
   - `scheduler` can be changed from `None` by default to alternative that You think is more effective
   - `Ranger21_optimizer` can be changed to classical `Adam/AdamW` or sth else (`SGD` etc.)
   - Your Loss function can be modified with gamma in FocalLoss (from SMP) and with beta in a linear combination of Dice and Focal Losses (from SMP)
