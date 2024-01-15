@@ -40,7 +40,7 @@ your_current_dir = os.getcwd()
 - **ATTENTION!** Splitting all inference data requires about **1 GB** of free memory on your hard drive!
 - In the last cell there is a visualization of ground truth masks, MANet model prediction and RGB image from Electro L2 with the metrics (FAR, IoU, F1) evaluation (can be modified for other metrics for Your needs)
 
-### Training_model_utils folder usage instructions:
+### MANet_training folder usage instructions:
 
 - This directory contains **MANet_training.ipynb** and **requirements.txt** for it with the full pipeline for successfull preprocessing multispectral data from Electro-L № 2 and training segmentation model on it via some tricks with `scheduler`, `optimizer` and `WeightedRandomSampler`
 - **ATTENTION!** This notebooks requires from You to unpack inferece data and split it to patches via **INFERENCE.ipynb** in advance!!!
