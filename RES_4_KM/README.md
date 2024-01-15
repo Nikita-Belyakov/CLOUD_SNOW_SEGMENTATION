@@ -68,4 +68,5 @@ To ask more questions about that project, leave any recomendations, suggestions 
 ## Acknowledgments:
 
 **Work is greatly supported by Non-commercial Foundation for the Advancement of Science and Education INTELLECT**
+Also huge thanks a lot to https://github.com/skolpin for a huge assist for creating this project!
 
