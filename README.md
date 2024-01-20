@@ -15,10 +15,6 @@ This project is devoted to the cloud and snow semantic segmentation using multis
   - https://neo.gsfc.nasa.gov/view.php?datasetId=MOD10C1_D_SNOW&date
 - Electro-L №2 data can be obtained from Siberian Center of the Federal State Budgetary Institution Scientific Research Center of Space Hydrometeorology "Planeta". The data is available from the author upon request and with permission from https://en.rcpod.ru/.
 
-## Acknowledgments:
-
-**Work is greatly supported by Non-commercial Foundation for the Advancement of Science and Education INTELLECT**
-Also huge thanks a lot to https://github.com/skolpin for a huge assist for creating this project!
 ## Setup python version
 The **INFERENCE.ipynb** and other notebooks from both folders mentioned above have been run with `python 3.9.7` on Windows 10 OS with NVIDIA CUDA supported (Adapt all needed packages versions accroding your Python version)
 
