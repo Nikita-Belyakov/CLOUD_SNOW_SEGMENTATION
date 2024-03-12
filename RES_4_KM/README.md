@@ -43,7 +43,7 @@ your_current_dir = os.getcwd()
 ### MANet_training folder usage instructions:
 
 - This directory contains **MANet_training.ipynb** and **requirements.txt** for it with the full pipeline for successfull preprocessing multispectral data from Electro-L № 2 and training segmentation model on it via some tricks with `scheduler`, `optimizer` and `WeightedRandomSampler`
-- **ATTENTION!** This notebooks requires from You to unpack inferece data and split it to patches via **INFERENCE.ipynb** in advance!!!
+- **ATTENTION!** This notebooks requires from You to unpack inference data and split it to patches via **INFERENCE.ipynb** in advance!!!
 - In this notebook as an example we use only 1 image from Electro-L № 2, which is situated in **data_inference folder** in that project (You won't be able to train segmentation model from scratch for good quality segmentation only on this 1 image! You can use pretrained models from this repo instead)
 - This notebook can be used in 'run all' mode on data in **data_inference folder** from that repo and than adapted for your own generated dataset
 - **PARSING_&_PROCESSING_SATELLITE_DATA_PUBLIC.ipynb** from **RES_1_KM folder** can help You to make your own big dataset of geostationary multispectral data with geoinfo and clouds, snow masks for your scientific research
